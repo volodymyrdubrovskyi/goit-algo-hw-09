@@ -50,5 +50,16 @@ def main():
     print('Жадібний алгоритм, час для сум ', test_group,' (1000 повторів): \n', time_greedy)
     print('Алгоритм динамічного програмування, час для сум ', test_group,' (1000 повторів): \n', time_min)
 
+    # пошук "хибного рішення" жадібного алгоритму
+    print('пошук "хибного рішення" стартував....')
+    for i in range(1, 5000):
+        result_greedy = find_coins_greedy(i)
+        result_min = find_min_coins(i)
+        if i % 777 == 0:
+            print(i, result_greedy, result_min)
+        if result_greedy != result_min:
+            print('Розбіжність: ', i, result_greedy, result_min)
+    print('пошук "хибного рішення" завершен')
+
 if __name__ == '__main__':
     main()
